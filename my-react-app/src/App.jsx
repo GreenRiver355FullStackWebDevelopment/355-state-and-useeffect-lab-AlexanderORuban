@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Box, Button, Typography } from '@mui/material';
 import Cards from './components/Cards.jsx';
 
 function App() {
@@ -26,29 +25,27 @@ function App() {
   };
 
   return (
-    <Box className="app" sx={{ bgcolor: '#c00', minHeight: '100vh' }}>
+    <div className="app">
       <h1>Pokémon List</h1>
       <div className="main-container">
         <Cards pokemons={pokemons} />
         <div className="button-row">
-          <Button
+          <button
             variant="contained"
             onClick={onClickBack}
             disabled={page === 0}
-            sx={{ bgcolor: '#444', color: 'white', '&:hover': { bgcolor: '#666' } }}
           >
             Back
-          </Button>
-          <Button
+          </button>
+          <button
             variant="contained"
             onClick={onClickNext}
-            sx={{ bgcolor: 'gold', color: 'black', '&:hover': { bgcolor: '#f5c518' } }}
           >
             Next
-          </Button>
+          </button>
         </div>
       </div>
-    </Box>
+    </div>
   );
 }
 
