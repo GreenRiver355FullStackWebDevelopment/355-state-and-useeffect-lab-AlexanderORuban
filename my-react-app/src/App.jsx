@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Cards from './components/Cards.jsx';
+import { Container, Typography, Box, Button } from '@mui/material';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -25,27 +26,45 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <h1>Pokémon List</h1>
-      <div className="main-container">
+    <Box sx={{ bgcolor: 'red', minHeight: '100vh', py: 4 }}>
+      <Box px={2}>
+        <Typography variant="h3" align="center" color="white" marginBottom={3} fontWeight={ 'bold' }>
+          Pokémon List
+        </Typography>
+
         <Cards pokemons={pokemons} />
-        <div className="button-row">
-          <button
+
+        <Box mt={3} display="flex" justifyContent="center" gap={2}>
+          <Button
             variant="contained"
             onClick={onClickBack}
             disabled={page === 0}
+            sx={{
+              backgroundColor: 'gray',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: '#555',
+              },
+            }}
           >
             Back
-          </button>
-          <button
+          </Button>
+          <Button
             variant="contained"
             onClick={onClickNext}
+            sx={{
+              backgroundColor: 'gold',
+              color: 'black',
+              '&:hover': {
+                backgroundColor: '#ffd700',
+              },
+            }}
           >
             Next
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
